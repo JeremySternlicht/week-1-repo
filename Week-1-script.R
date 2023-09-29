@@ -24,3 +24,12 @@ ggplot(data = hhurban, aes(x = UrbanType, y = hv009)) +
     x = "Urban Area Type",
     y = "Household Size"
   )
+
+summary_stats <- hhurban %>%
+  group_by(UrbanType) %>%
+  summarise(
+    Mean_Household_Size = mean(hv009),
+    Median_Household_Size = median(hv009)
+  )
+
+print(summary_stats)
